@@ -20,4 +20,16 @@ class TodosController < ApplicationController
       render plain: "Ënter the valid id"
     end
   end
+
+  def create
+    todo_text = params[:todo_text]
+    date = DateTime.parse(params[:due_date])
+    new_todos = Todo.create!(
+      todo_text: todo_text,
+      due_date: date,
+      completed: false,
+    )
+    render_text = "Hey you have added the new item in data base with id #{new_todos.id}"
+    render plain: render_text
+  end
 end
