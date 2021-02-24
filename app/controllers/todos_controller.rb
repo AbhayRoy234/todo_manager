@@ -9,16 +9,14 @@ class TodosController < ApplicationController
   # ---- whereas show_id is used on to the particular
   # ----- todo with given id  if available in the
   # ----- database.
-  def show_id
-    begin
-    rescue
-      id = params[:id]
-      # render plain: "his is waht you typed id #{id}"
-      todos = Todo.find(id)
-      render plain: todos.to_pleasent_string
-    else
-      render plain: "Ënter the valid id"
-    end
+  def show
+    id = params[:id]
+    # render plain: "his is waht you typed id #{id}"
+    todos = Todo.find(id)
+    render plain: todos.to_pleasent_string
+    # else
+    # render plain: "you have exterd the "
+    # end
   end
 
   def create
