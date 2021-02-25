@@ -30,4 +30,14 @@ class TodosController < ApplicationController
     render_text = "Hey you have added the new item in data base with id #{new_todos.id}"
     render plain: render_text
   end
+
+  def update
+    id = params[:id]
+    completed = params[:completed]
+    todo = Todo.find(id)
+    todo.completed = completed
+    todo.save!
+    render_text = "updated todod completed status id #{completed}"
+    render plain: render_text
+  end
 end
