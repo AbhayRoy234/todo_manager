@@ -1,0 +1,116 @@
+
+body{
+font-family: sans-serif;
+max-width: 500px;
+margin: 0 auto;
+}
+
+h1{
+  font-size: 48px;
+  line-height: 1;
+  color: #170f20;
+}
+
+.section-heading{
+  font-size: 34px;
+  line-height: 1;
+  color: #4e1d86;
+  margin-left: 20px;
+}
+.items{
+  font-size: 28px;
+  line-height: 1;
+  color: #1d0835;
+  margin-left: 35px;
+}
+
+.section-class{
+  /* background-color: #601cc0; */
+  margin-bottom: 70px;
+  /* margin: 20px; */
+  /* display: flex; */
+}
+.Add-toto-text{
+  height: 27px;
+  width: 40%;
+  border: 2px solid black ;
+  border-radius:5% ;
+  padding-left: 20px;
+}
+.Add-date{
+  height: 27px;
+  width: 30%;
+  border: 2px solid black ;
+  border-radius:5% ;
+
+}
+.Add-button{
+  background-color:#48BB78 ;
+  color: white;
+  font-size: 18px;
+  height: 38px;
+  width: 20%;
+  /* border: 2px solid black ; */
+  border-radius:10px ;
+}
+.section-heading-design{
+  display: flex;
+  margin: 8px;
+  text-align: center;
+}
+.section-heading-text{
+line-height: 1.4;
+margin-right: 18px;
+font-weight: 600;
+font-size:16px;
+}
+/* .sectionTitle-remaining-item{
+  /* text-align: center; */
+/* }  */
+
+.Overdue-Todoitem{
+  color: red;
+  text-align: center;
+}
+.TodoItem{
+  display: flex;
+  margin-right:18px ;
+  margin-right: 8px;
+}
+.TodoItems-Checkbox{
+  margin-left:40px ;
+  width: 14px;
+  height: 14px;
+  margin-bottom:4px;
+  margin-right: 8px;
+  text-align: center;
+  /* border-radius: 30px; */
+  /* border: dotted brown 5px; */
+}
+.Ul-listing-items{
+  /* display: inline; */
+  margin-right: 40px;
+
+}
+.Overdue-Todoitem{
+  margin-left: 40px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0px;
+  /* display: flex; */
+  /* font-size: 30px; */
+}
+.delete-icon{
+  width: 20px;
+  height: 20px;
+  margin-left:10px;
+  display: none;
+}
+.TodoItem:hover{
+  background-color: rgb(217, 224, 235);
+
+}
+.TodoItem:hover .delete-icon{
+/* background-color: red; */
+  display: inline;
+}
