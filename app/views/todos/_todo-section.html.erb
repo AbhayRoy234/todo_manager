@@ -1,0 +1,25 @@
+<section class="show-list-Today">
+        <div class="section-heading-design">
+          <p class="section-heading-text"> <%=section_title%></p>
+          <p class="sectionTitle-remaining-item"><%=todo.completed.count%>/<%=todo.count%></p>
+        </div>
+        <ul class="Ul-listing-items">
+
+            <%todo.each do |todos|%>
+
+              <div  style="display:flex; align-item:centre; ">
+               <li class="TodoItem">
+                <input class="TodoItems-Checkbox" type="checkbox" name="checkBox2" unchecked>
+                  <p style="color:darkblue; font-size:15px; margin-right:10px;"><%=todos.todo_text%></p>
+                  <%if show_due_date%>
+                    <p class="TodoItem-DueDate"><%=todos.due_date.to_s(:short)%></p>
+                  <%end%>
+               <%# <p class="Overdue-Todoitem">Overdue</p> %>
+            <a class="TodoItem-delete" href="javascript:void(0)">
+              <img class="delete-icon" src="delete.png" alt="Not connected">
+            </a>
+               </li>
+               </div>
+            <% end %>
+            </ul>
+      </section>

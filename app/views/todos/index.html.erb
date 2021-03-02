@@ -1,0 +1,27 @@
+  <main>
+    <article class="Main-Todo-Layout">
+
+      <section class="Add-new">
+        <input class="Add-toto-text" type="text" placeholder="What's Next ">
+        <input class="Add-date" type="date">
+        <input class="Add-button" type="button" value="Add">
+      </section>
+
+        <%= render partial: "todo-section", locals: {
+          section_title: "Overdue",
+          todo:Todo.due_Overdue,
+          show_due_date:true
+          }%>
+        <%# <%=rndder partial : "from"%>
+        <%=render partial: "todo-section", locals: {
+          section_title: "Due Today",
+          todo:Todo.due_today,
+          show_due_date:false
+          }%>
+        <%=render partial: "todo-section", locals: {
+          section_title: "OveRemaining",
+          todo:Todo.due_Later,
+          show_due_date:true
+          }%>
+    </article>
+  </main>
