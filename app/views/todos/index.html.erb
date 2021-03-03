@@ -10,18 +10,21 @@
         <%= render partial: "todo-section", locals: {
           section_title: "Overdue",
           todo:Todo.due_Overdue,
-          show_due_date:true
+          show_due_date:true,
+          iscompleted:Todo.completed
           }%>
         <%# <%=rndder partial : "from"%>
         <%=render partial: "todo-section", locals: {
           section_title: "Due Today",
           todo:Todo.due_today,
-          show_due_date:false
+          show_due_date:false,
+          iscompleted:Todo.completed
           }%>
         <%=render partial: "todo-section", locals: {
           section_title: "OveRemaining",
           todo:Todo.due_Later,
-          show_due_date:true
+          show_due_date:true,
+          iscompleted:Todo.completed
           }%>
     </article>
   </main>

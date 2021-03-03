@@ -6,20 +6,48 @@
         <ul class="Ul-listing-items">
 
             <%todo.each do |todos|%>
-
+            <%if section_title=="Overdue"%>
+              <%if todos.completed%>
+                <%# <p style="color:darkblue; font-size:15px; margin-right:10px;"><%=todos.todo_text%></p>
+                <%# <p style="color:darkblue; font-size:15px; margin-right:10px;"><%=todos.completed%></p>
+              <% else %>
+                    <div  style="display:flex; align-item:centre; ">
+                      <li class="TodoItem">
+                        <input class="TodoItems-Checkbox" type="checkbox" name="checkBox2" unchecked>
+                        <p style="color:darkblue; font-size:15px; margin-right:10px;"><%=todos.todo_text%></p>
+                        <%if show_due_date%>
+                          <p class="TodoItem-DueDate"><%=todos.due_date.to_s(:short)%></p>
+                        <%end%>
+                      <%# <p class="Overdue-Todoitem">Overdue</p> %>
+                        <a class="TodoItem-delete" href="javascript:void(0)">
+                        <img class="delete-icon" src="delete.png" alt="Not connected">
+                        </a>
+                      </li>
+                    </div>
+              <%end%>
+            <% else %>
               <div  style="display:flex; align-item:centre; ">
                <li class="TodoItem">
-                <input class="TodoItems-Checkbox" type="checkbox" name="checkBox2" unchecked>
+               <%if todos.completed%>
+                  <input class="TodoItems-Checkbox" type="checkbox" name="checkBox2" checked>
+                   <p style="color:darkblue; font-size:15px; margin-right:10px; text-decoration: line-through;"><%=todos.todo_text%></p>
+               <%else%>
+                  <input class="TodoItems-Checkbox" type="checkbox" name="checkBox2" unchecked>
                   <p style="color:darkblue; font-size:15px; margin-right:10px;"><%=todos.todo_text%></p>
-                  <%if show_due_date%>
-                    <p class="TodoItem-DueDate"><%=todos.due_date.to_s(:short)%></p>
-                  <%end%>
+                <%end%>
+                <%if show_due_date%>
+                  <p class="TodoItem-DueDate"><%=todos.due_date.to_s(:short)%></p>
+                <%end%>
                <%# <p class="Overdue-Todoitem">Overdue</p> %>
-            <a class="TodoItem-delete" href="javascript:void(0)">
-              <img class="delete-icon" src="delete.png" alt="Not connected">
-            </a>
-               </li>
-               </div>
-            <% end %>
+                <a class="TodoItem-delete" href="javascript:void(0)">
+                <img class="delete-icon" src="delete.png" alt="Not connected">
+                </a>
+                </li>
+              </div>
+            <%end%>
+               <%# <p class="Overdue-Todoitem">Overdue</p> %>
+               <%# <p class="Overdue-Todoitem">Overdue</p> %>
+
+          <% end %>
             </ul>
       </section>
