@@ -1,12 +1,12 @@
   <main>
     <article class="Main-Todo-Layout">
-
-      <form class="Add-new" action="/todos" method="POST">
+    <%=form_with(url:"/todos", method:"post",class:"Add-new") do %>
+      <%# <form class="Add-new" action="/todos" method="POST"> %>
         <input class="Add-toto-text" type="text" placeholder="What's Next " name="todo_text">
         <input class="Add-date" type="date" name="due_date">
         <input class="Add-button" type="submit" value="Add">
-      </form>
-
+      <%# </form> %>
+    <%end%>
         <%= render partial: "todo-section", locals: {
           section_title: "Overdue",
           todo:Todo.due_Overdue,
