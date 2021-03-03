@@ -123,3 +123,6 @@ color: darkcyan;
 .todo-text-completed{
   text-decoration: line-through;
 }
+p{
+  text-decoration: none;
+}

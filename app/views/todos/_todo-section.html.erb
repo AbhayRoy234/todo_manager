@@ -9,8 +9,8 @@
               <div  style="display:flex; align-item:centre; ">
                 <li class="TodoItem">
 
-                  <%= form_with(url:"/todos/#{todos.id}", method:"PUT") do %>
-                    <input class="TodoItems-Checkbox"  name="completed" type="checkbox" <%=todos.completed ? "chechked" : "" %> onclick=" this.form.submit() "/>
+                  <%= form_with(url:"/todos/#{todos.id}", method:"put") do %>
+                    <input class="TodoItems-Checkbox"  name="completed" type="checkbox" <%=todos.completed ? "checked" : "" %> onclick=" this.form.submit() "/>
                     <%# <input type="submit" value="update"> %>
                   <%end%>
 
