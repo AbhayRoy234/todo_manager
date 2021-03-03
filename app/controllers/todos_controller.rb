@@ -29,8 +29,9 @@ class TodosController < ApplicationController
       due_date: date,
       completed: false,
     )
-    render_text = "Hey you have added the new item in data base with id #{new_todos.id}"
-    render plain: render_text
+    # render_text = "Hey you have added the new item in data base with id #{new_todos.id}"
+    # render plain: render_text
+    redirect_to todos_path
   end
 
   def update
@@ -39,7 +40,15 @@ class TodosController < ApplicationController
     todo = Todo.find(id)
     todo.completed = completed
     todo.save!
-    render_text = "updated todod completed status id #{completed}"
-    render plain: render_text
+    # render_text = "updated todod completed status id #{completed}"
+    # render plain: render_text
+    redirect_to todos_path
+  end
+
+  def destroy
+    id = params[:id]
+    todo = Todo.find(id)
+    todo.destroy
+    redirect_to todos_path
   end
 end

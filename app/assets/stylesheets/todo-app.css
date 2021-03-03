@@ -85,6 +85,7 @@ font-size:16px;
   margin-bottom:4px;
   margin-right: 8px;
   text-align: center;
+  /*background-color: green;*/
   /* border-radius: 30px; */
   /* border: dotted brown 5px; */
 }
@@ -118,4 +119,7 @@ font-size:16px;
 .TodoItem-DueDate{
   font-size: 13px;
 color: darkcyan;
+}
+.todo-text-completed{
+  text-decoration: line-through;
 }
