@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :todos
   resources :users
   get "/" => "home#index", as: :home
+  get "/signin" => "sessions#new", as: :new_sessions
+  post "/signin" => "sessions#create", as: :sessions
   post "users/login", to: "users#login"
 end

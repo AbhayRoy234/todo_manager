@@ -1,0 +1,17 @@
+.parap_Signup{
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+
+.parap_Sigin{
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+
+.parap_Signup:hover{
+  background-color: rgb(198, 181, 214);
+}
+
+.parap_Sigin:hover{
+  background-color: rgb(173, 135, 30);
+}
