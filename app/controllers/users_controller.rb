@@ -14,37 +14,39 @@ class UsersController < ApplicationController
     last_name = params[:last_name]
     email = params[:email]
     password = params[:password]
-    new_user = User.create!(
+    new_user = User.new(
       first_name: first_name,
       last_name: last_name,
       email: email,
       password: password,
     )
-    session[:current_user_id] = new_user.id
-    # render_text = "Hey you have added the new item in data base with id #{new_user.id}"
-    # render plain: render_text
-    # new_user.save!
-    redirect_to home_path
+    if new_user.save
+      # session[:current_user_id] = new_user.id
+      redirect_to todos_path
+    else
+      flash[:error] = new_user.errors.full_messages.join(",   ")
+      redirect_to new_user_path
+    end
   end
 
-  # def login
-  #   email = params[:email]
-  #   password = params[:password]
-  #   var = User.find_by(email: email, password: password)
-  #   # if user.email == email && user.password == password
-  #   val1 = var ? true : false
+  def login
+    email = params[:email]
+    password = params[:password]
+    var = User.find_by(email: email, password: password)
+    # if user.email == email && user.password == password
+    val1 = var ? true : false
 
-  #   if val1
-  #     # render_text = "we found email with "
-  #     render plain: val1
-  #   else
-  #     # render_text = "we not email with "
-  #     render plain: val1
-  #   end
-  #   # else
-  #   # render palin: "false"
-  #   # end
-  # end
+    if val1
+      # render_text = "we found email with "
+      render plain: val1
+    else
+      # render_text = "we not email with "
+      render plain: val1
+    end
+    # else
+    # render palin: "false"
+    # end
+  end
 
   def show
     id = params[:id]
