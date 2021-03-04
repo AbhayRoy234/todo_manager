@@ -1,19 +1,27 @@
 class UsersController < ApplicationController
   def index
-    render plain: User.order(:name).map { |todos| todos.to_pleasent_string }.join("\n")
+    render "index"
+  end
+
+  def new
+    render "users/new"
   end
 
   def create
-    name = params[:name]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
     email = params[:email]
     password = params[:password]
-    new_todos = User.create!(
-      name: name,
+    new_user = User.create!(
+      first_name: first_name,
+      last_name: last_name,
       email: email,
       password: password,
     )
-    render_text = "Hey you have added the new item in data base with id #{new_todos.id}"
-    render plain: render_text
+    # render_text = "Hey you have added the new item in data base with id #{new_user.id}"
+    # render plain: render_text
+    new_user.save!
+    redirect_to home_path
   end
 
   def login

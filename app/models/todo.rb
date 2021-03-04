@@ -1,6 +1,8 @@
 require "date"
 
 class Todo < ActiveRecord::Base
+  belongs_to :user
+
   def to_pleasent_string
     is_completed = completed ? "[x]" : "[]"
     "#{due_date.to_s(:long)}  #{id}  #{todo_text} #{is_completed} "
