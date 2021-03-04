@@ -22,3 +22,8 @@
   display: flex;
   justify-content: space-between;
 }
+.flash_error{
+  color: darkred;
+  margin-top: 10px;
+  font-weight: 700;
+}

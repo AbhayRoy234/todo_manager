@@ -1,5 +1,7 @@
 # todos_controller.rb
 class TodosController < ApplicationController
+  # validates :todo_text, presence: true
+
   def index
     @todos = Todo.of_user(current_user)
     render "index"
@@ -18,8 +20,8 @@ class TodosController < ApplicationController
 
   def create
     todo_text = params[:todo_text]
-    date = DateTime.parse(params[:due_date])
-    new_todos = Todo.create!(
+    date = params[:due_date]
+    new_todos = Todo.new(
       todo_text: todo_text,
       due_date: date,
       completed: false,
@@ -28,7 +30,7 @@ class TodosController < ApplicationController
     if new_todos.save
       redirect_to todos_path
     else
-      flash[:error] = new_todos.errors.full_messages.join(", ")
+      flash[:error] = new_todos.errors.full_messages.join(",   ")
       redirect_to todos_path
     end
   end

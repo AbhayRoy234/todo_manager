@@ -11,7 +11,9 @@ class SessionsController < ApplicationController
       # render plain: "You have eneter the correct password"
       redirect_to "/"
     else
-      render plain: "opps ! Enter the correct password"
+      # render plain: "opps ! Enter the correct password"
+      flash[:error] = "Enter the Valid Email and Password,Please retry"
+      redirect_to new_sessions_path
     end
   end
 
