@@ -2,7 +2,6 @@
 class TodosController < ApplicationController
   def index
     render "index"
-    # render plain: Todo.order(:due_date).map { |todos| todos.to_pleasent_string }.join("\n")
   end
 
   # --- index is used to shiow the list of
@@ -12,13 +11,8 @@ class TodosController < ApplicationController
   # ----- database.
   def show
     id = params[:id]
-    # render plain: "his is waht you typed id #{id}"
     todos = Todo.find(id)
     render "todo"
-    # render plain: todos.to_pleasent_string
-    # else
-    # render plain: "you have exterd the "
-    # end
   end
 
   def create
@@ -28,10 +22,14 @@ class TodosController < ApplicationController
       todo_text: todo_text,
       due_date: date,
       completed: false,
+      user_id: current_user.id,
     )
-    # render_text = "Hey you have added the new item in data base with id #{new_todos.id}"
-    # render plain: render_text
-    redirect_to todos_path
+    if new_todos.save
+      redirect_to todos_path
+    else
+      flash[:error] = new_todos.errors.full_messages.join(", ")
+      redirect_to todos_path
+    end
   end
 
   def update

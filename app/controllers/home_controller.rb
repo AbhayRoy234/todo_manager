@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
+  skip_before_action :ensure_user_logged_in
+
   def index
-    @current_user_id = session[:current_user_id]
-    render "index"
-    # render plain: Todo.order(:due_date).map { |todos| todos.to_pleasent_string }.join("\n")
+    if current_user
+      redirect_to todos_path
+    else
+      render "index"
+    end
   end
 end
