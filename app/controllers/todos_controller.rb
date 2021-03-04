@@ -1,6 +1,7 @@
 # todos_controller.rb
 class TodosController < ApplicationController
   def index
+    @todos = Todo.of_user(current_user)
     render "index"
   end
 
@@ -11,7 +12,7 @@ class TodosController < ApplicationController
   # ----- database.
   def show
     id = params[:id]
-    todos = Todo.find(id)
+    todos = Todo.of_user(current_user).find(id)
     render "todo"
   end
 
@@ -35,7 +36,7 @@ class TodosController < ApplicationController
   def update
     id = params[:id]
     completed = params[:completed]
-    todo = Todo.find(id)
+    todo = Todo.of_user(current_user).find(id)
     todo.completed = completed
     todo.save!
     # render_text = "updated todod completed status id #{completed}"
@@ -45,7 +46,7 @@ class TodosController < ApplicationController
 
   def destroy
     id = params[:id]
-    todo = Todo.find(id)
+    todo = Todo.of_user(current_user).find(id)
     todo.destroy
     redirect_to todos_path
   end

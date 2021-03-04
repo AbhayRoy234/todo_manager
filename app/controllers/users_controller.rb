@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       email: email,
       password: password,
     )
+    session[:current_user_id] = new_user.id
     # render_text = "Hey you have added the new item in data base with id #{new_user.id}"
     # render plain: render_text
     # new_user.save!
